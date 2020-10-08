@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="tarefas" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row my-4 mx-auto justify-content-center">
+            <div class="col-4">
+                <div ng-controller="tarefasController">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="text-center">Lista de tarefas</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Tarefas restantes: {{restantes()}} de {{lista.length}}</p>
+                            <div ng-repeat="item in lista">
+                                <label for="" class="checkbox">
+                                    <input type="checkbox" ng-model="item.feito">
+                                    <span class="feito-{{item.feito}}">{{item.texto}}</span>
+                                </label>
+                            </div>
+                            <input class="mt-2" ng-model="novaTarefa" type="text" placeholder="Adicionar nova tarefa">
+                            <button class="btn btn-primary btn-sm" ng-click="adicionar()">Adicionar</button>
+                        </div>
+                        <div class="card-footer">
+                            <a class="" href="" ng-click="arquivar()">Arquivar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/lista-tarefas.js"></script>
+</body>
+</html>
